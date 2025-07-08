@@ -1,9 +1,3 @@
-<script>
-export default {
-  props: ['caption'],
-}
-</script>
-
 <template>
   <div class="header flex f_tile">
     <div class="left flex f_centered">
@@ -15,7 +9,7 @@ export default {
     </div>
     <div class="right flex f_centered">
       <div class="wrap-h">
-        <h1>{{ caption }}</h1>
+        <h1>Chat</h1>
       </div>
     </div>
   </div>
