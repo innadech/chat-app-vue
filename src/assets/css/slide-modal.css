@@ -5,11 +5,10 @@
   height: 85%;
   width: 100%;
   background-color: #fffa;
-  transition: all .4s ease;
+  transition: all 0.4s ease;
   font-size: 22px;
   border: 1px solid #ccc;
 }
-
 
 .slide-modal .wrap-enter-form {
   width: 60%;
@@ -25,7 +24,6 @@
   margin-bottom: 65px;
 }
 
-
 .slide-modal .wrap-enter-button {
   text-align: center;
 }
@@ -34,13 +32,12 @@
   background-color: #ccc;
   line-height: 80px;
   cursor: pointer;
-  pointer-events: none;
+  /* pointer-events: none; */
 }
 .slide-modal .wrap-enter-button > label:hover {
   background-color: #cccc;
   opacity: 85%;
 }
-
 
 .slide-modal #input_nickname:valid + .wrap-enter-button > label {
   pointer-events: all;

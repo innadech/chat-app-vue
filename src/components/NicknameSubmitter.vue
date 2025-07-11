@@ -1,7 +1,6 @@
 <script>
 export default {
-  props: ['caption'],
-  emits: ['login-submitted'],
+  emits: ['nickname-submitted'],
 
   data() {
     return {
@@ -10,9 +9,9 @@ export default {
   },
 
   methods: {
-    handleClickLoginButton() {
+    handleClick() {
       if (this.nickname !== '') {
-        this.$emit('login-submitted', this.nickname)
+        this.$emit('nickname-submitted', this.nickname)
         this.nickname = ''
       }
     },
@@ -21,22 +20,24 @@ export default {
 </script>
 
 <template>
-  <input ref="elInput" type="checkbox" id="chk_sm" />
+  {{ nickname }}
+  <input type="checkbox" id="chk_sm" />
   <div class="slide-modal flex f_centered">
     <div class="wrap-enter-form">
-      <label for="input_nickname">{{ caption }}</label>
+      <label for="input_nickname">Your nickname:</label>
       <input
         v-bind:value="nickname"
+        v-on:input="nickname = $event.target.value"
         type="text"
         id="input_nickname"
         spellcheck="false"
         autocomplite="off"
         required
       />
-      <div class="wrap-enter-button">
-        <label v-on:click="handleClickLoginButton" for="chk_sm" id="btn_enter"
-          >Enter the chat</label
-        >
+      <div v-on:click="handleClick" class="wrap-enter-button">
+        <label v-on:click="handleClick" for="chk_sm" id="btn_enter">
+          Enter the chat
+        </label>
       </div>
     </div>
   </div>

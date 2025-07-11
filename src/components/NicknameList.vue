@@ -2,8 +2,9 @@
 import NicknameItem from './NicknameItem.vue'
 
 export default {
-  props: [nicknames],
   components: { NicknameItem },
+
+  props: ['nicknames'],
 }
 </script>
 

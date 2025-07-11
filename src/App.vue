@@ -1,17 +1,17 @@
 <script>
-import HeaderChat from './components/HeaderChat.vue'
-import ContentChat from './components/ContentChat.vue'
-import FooterChat from './components/FooterChat.vue'
-import EnterChat from './components/EnterChat.vue'
-import SlideModalChat from './components/SlideModalChat.vue'
+import UiHeaderChat from './ui/UiHeaderChat.vue'
+import MessageList from './components/MessageList.vue'
+import MessageSubmitter from './components/MessageSubmitter.vue'
+import NicknameList from './components/NicknameList.vue'
+import NicknameSubmitter from './components/NicknameSubmitter.vue'
 
 export default {
   components: {
-    HeaderChat,
-    ContentChat,
-    FooterChat,
-    EnterChat,
-    SlideModalChat,
+    UiHeaderChat,
+    MessageList,
+    MessageSubmitter,
+    NicknameList,
+    NicknameSubmitter,
   },
 
   data() {
@@ -24,48 +24,27 @@ export default {
 </script>
 
 <template>
+  {{ nicknames }}
   <div class="main flex f_centered light">
     <div class="chat">
-      <HeaderChat caption="Chat" />
-      <ContentChat
-        v-bind:nicknames="nicknames"
-        v-on:message-updated="messages = $event"
-      />
-      <FooterChat v-on:message-submitted="messages.push($event)" />
-      <EnterChat />
-      <SlideModalChat
-        caption="Your nickname:"
-        v-on:login-submitted="nicknames.push($event)"
-      />
+      <UiHeaderChat />
+
+      <div class="content flex f_tile">
+        <div class="left">
+          <MessageList v-bind:messages="messages" />
+        </div>
+        <div class="right">
+          <NicknameList v-bind:nicknames="nicknames" />
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="wrap-send-message flex f_tile">
+          <MessageSubmitter v-on:message-submitted="messages.push($event)" />
+        </div>
+      </div>
+
+      <NicknameSubmitter v-on:nickname-submitted="nicknames.push($event)" />
     </div>
   </div>
 </template>
-
-<style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
-</style>
