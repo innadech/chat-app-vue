@@ -1,7 +1,5 @@
 <script>
-export default {
-  props: ['caption'],
-}
+export default {}
 </script>
 
 <template>

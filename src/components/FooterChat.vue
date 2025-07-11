@@ -34,8 +34,3 @@ export default {
     </div>
   </div>
 </template>
-
-<input
-  v-bind:value="fruit"
-  v-on:input="$emit('edited-fruit', $event.target.value)"
-/>
