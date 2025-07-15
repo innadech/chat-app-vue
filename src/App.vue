@@ -18,6 +18,7 @@ export default {
     return {
       nicknames: [],
       messages: [],
+      message: '',
     }
   },
 }
@@ -25,6 +26,8 @@ export default {
 
 <template>
   {{ nicknames }}
+  {{ messages }}
+  {{ message }}
   <div class="main flex f_centered light">
     <div class="chat">
       <UiHeaderChat />
@@ -34,7 +37,11 @@ export default {
           <MessageList v-bind:messages="messages" />
         </div>
         <div class="right">
-          <NicknameList v-bind:nicknames="nicknames" />
+          <NicknameList
+            v-bind:nicknames="nicknames"
+            v-bind:message="message"
+            v-on:update-message="message = $event"
+          />
         </div>
       </div>
 
@@ -48,3 +55,5 @@ export default {
     </div>
   </div>
 </template>
+
+<!-- v-on:message-submitted="message = $event" -->
