@@ -20,7 +20,6 @@ export default {
 </script>
 
 <template>
-  {{ nickname }}
   <input type="checkbox" id="chk_sm" />
   <div class="slide-modal flex f_centered">
     <div class="wrap-enter-form">
@@ -28,10 +27,7 @@ export default {
       <input
         v-bind:value="nickname"
         v-on:input="nickname = $event.target.value"
-        type="text"
         id="input_nickname"
-        spellcheck="false"
-        autocomplite="off"
         required
       />
       <div v-on:click="handleClick" class="wrap-enter-button">

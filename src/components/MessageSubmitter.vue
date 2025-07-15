@@ -1,7 +1,5 @@
 <script>
 export default {
-  // props: ['caption'],
-
   emits: ['message-submitted'],
 
   data() {
@@ -11,7 +9,7 @@ export default {
   },
 
   methods: {
-    handleClickButton() {
+    handleClick() {
       if (this.message !== '') {
         this.$emit('message-submitted', this.message)
         this.message = ''
@@ -29,5 +27,5 @@ export default {
     spellcheck="false"
     id="input_msg"
   />
-  <input ref="elInput" type="submit" v-on:click="handleClickButton" />
+  <input ref="elInput" type="submit" v-on:click="handleClick" />
 </template>

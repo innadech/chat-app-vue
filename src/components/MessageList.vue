@@ -7,8 +7,8 @@ export default {
 <template>
   <div class="wrap-chat-flow">
     <div class="chat-flow" spellcheck="false">
-      <div class="msg-line" v-for="(message, idx) of messages" v-bind:key="idx">
-        <div>
+      <div v-for="(message, idx) of messages" v-bind:key="idx">
+        <div class="msg-line">
           <span>{{ message }}</span>
         </div>
       </div>
