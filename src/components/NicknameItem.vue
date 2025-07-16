@@ -1,27 +1,19 @@
 <script>
 export default {
-  props: ['nickname', 'message'],
-  emits: ['message-updated'],
-
-  data() {
-    return {
-      localMessage: this.message,
-    }
-  },
+  props: ['nickname'],
 
   methods: {
-    pingNickname(nickname) {
-      if (this.localMessage.indexOf(nickname) !== -1) {
-        return
-      } else
-        this.$emit('message-updated', { nickname, message: this.localMessage })
+    sendPingNickname(event) {
+      const textContent = event.target.textContent
+      console.log(textContent)
+      this.$emit('sendping-nickname', textContent)
     },
   },
 }
 </script>
 
 <template>
-  <div v-on:click="pingNickname(nickname)">
+  <div v-on:click="sendPingNickname">
     <span>{{ nickname }}</span>
   </div>
 </template>

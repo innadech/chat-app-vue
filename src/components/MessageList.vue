@@ -1,5 +1,8 @@
 <script>
+import MessageItem from './MessageItem.vue'
 export default {
+  components: { MessageItem },
+
   props: ['messages'],
 }
 </script>
@@ -7,11 +10,11 @@ export default {
 <template>
   <div class="wrap-chat-flow">
     <div class="chat-flow" spellcheck="false">
-      <div v-for="(message, idx) of messages" v-bind:key="idx">
-        <div class="msg-line">
-          <span>{{ message }}</span>
-        </div>
-      </div>
+      <MessageItem
+        v-for="(message, idx) of messages"
+        v-bind:key="idx"
+        v-bind:message="message"
+      />
     </div>
   </div>
 </template>

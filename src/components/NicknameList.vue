@@ -4,18 +4,12 @@ import NicknameItem from './NicknameItem.vue'
 export default {
   components: { NicknameItem },
 
-  props: ['nicknames', 'message'],
-  emits: ['update-message'],
+  props: ['nicknames'],
 
-  data() {
-    return {
-      localMessage: this.message,
-    }
-  },
   methods: {
-    updateMessage(newMessage) {
-      this.localMessage = newMessage
-      this.$emit('update-message', newMessage)
+    forwardPingNickname(text) {
+      console.log(text)
+      this.$emit('forwardping-nickname', text)
     },
   },
 }
@@ -27,8 +21,7 @@ export default {
       v-for="(nickname, idx) of nicknames"
       v-bind:key="idx"
       v-bind:nickname="nickname"
-      v-bind:message="localMessage"
-      v-on:message-updated="updateMessage($event)"
+      v-on:sendping-nickname="forwardPingNickname"
     />
   </div>
 </template>
