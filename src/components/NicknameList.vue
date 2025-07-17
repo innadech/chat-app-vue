@@ -5,13 +5,6 @@ export default {
   components: { NicknameItem },
 
   props: ['nicknames'],
-
-  methods: {
-    forwardPingNickname(text) {
-      console.log(text)
-      this.$emit('forwardping-nickname', text)
-    },
-  },
 }
 </script>
 
@@ -21,7 +14,7 @@ export default {
       v-for="(nickname, idx) of nicknames"
       v-bind:key="idx"
       v-bind:nickname="nickname"
-      v-on:sendping-nickname="forwardPingNickname"
+      v-on:click="$emit('forwardping-nickname', nickname)"
     />
   </div>
 </template>
