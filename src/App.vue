@@ -35,7 +35,7 @@ export default {
     },
 
     login(e) {
-      this.currentMessage = ''
+      // this.currentMessage = ''
       this.currentNickname = e
       let isOk = this.addListNickname()
       if (isOk) {
