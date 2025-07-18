@@ -6,16 +6,24 @@ export default {
 
   data() {
     return {
-      // pingingNickname: 'Inna',
-      message: 'ты где ?',
+      message: '',
     }
   },
 
   methods: {
     handleClick() {
       if (this.message !== '') {
-        this.$emit('message-submitted', this.message)
+        const m = this.getPingingName() + this.message
+        this.$emit('message-submitted', m)
         this.message = ''
+      }
+    },
+
+    getPingingName() {
+      if (this.pingingNickname === '') {
+        return ''
+      } else {
+        return '@' + this.pingingNickname + ': '
       }
     },
   },
@@ -23,12 +31,9 @@ export default {
 </script>
 
 <template>
-  {{ message }}
   <input
-    v-bind:value="'@' + pingingNickname + ': ' + message"
-    v-on:input="
-      message = $event.target.value.replace('@' + pingingNickname + ': ', '')
-    "
+    v-bind:value="getPingingName() + message"
+    v-on:input="message = $event.target.value.replace(getPingingName(), '')"
     type="text"
     spellcheck="false"
     id="input_msg"
