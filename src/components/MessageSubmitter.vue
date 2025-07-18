@@ -1,12 +1,12 @@
 <script>
 export default {
-  // props: ['pingingNickname'],
+  props: ['pingingNickname'],
 
   emits: ['message-submitted'],
 
   data() {
     return {
-      pingingNickname: 'Inna',
+      // pingingNickname: 'Inna',
       message: 'ты где ?',
     }
   },

@@ -35,7 +35,7 @@ export default {
     },
 
     login(e) {
-      // this.currentMessage = ''
+      this.currentMessage = ''
       this.currentNickname = e
       let isOk = this.addListNickname()
       if (isOk) {
@@ -44,7 +44,11 @@ export default {
     },
     systemMessage() {
       const currentMessageSystem =
-        this.currentNickname + ': ' + 'вошел(ла) в чат' + this.currentMessage
+        '{system}' +
+        this.currentNickname +
+        ' ' +
+        'вошел(ла) в чат' +
+        this.currentMessage
       this.messages.push(currentMessageSystem)
     },
     sendMessage(e) {
@@ -101,7 +105,10 @@ export default {
 
       <div class="footer">
         <div class="wrap-send-message flex f_tile">
-          <MessageSubmitter v-on:message-submitted="sendMessage" />
+          <MessageSubmitter
+            v-on:message-submitted="sendMessage"
+            v-bind:pingingNickname="pingName"
+          />
         </div>
       </div>
 
