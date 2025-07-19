@@ -38,6 +38,12 @@ export default {
     spellcheck="false"
     id="input_msg"
   />
-  <input ref="elInput" type="submit" v-on:click="handleClick" />
+  <input
+    ref="elInput"
+    type="submit"
+    v-on:click="handleClick"
+    id="btn_send_msg"
+    value="⤶"
+  />
 </template>
 <!-- v-on:input="console.log($event.target.value)" -->
