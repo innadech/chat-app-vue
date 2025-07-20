@@ -5,5 +5,7 @@ export default {
 </script>
 
 <template>
-  <span>{{ nickname }}</span>
+  <div>
+    <span>{{ nickname }}</span>
+  </div>
 </template>
